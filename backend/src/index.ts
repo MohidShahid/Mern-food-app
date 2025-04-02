@@ -1,6 +1,7 @@
 import express , {Request , Response} from "express";
 import mongoose from "mongoose";
-
+import 'dotenv/config'
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string).then((res)=>console.log("Database Connected"));
 const app = express();
 app.use(express.json())
 app.get("/test" , (req : Request , res : Response)=>{
